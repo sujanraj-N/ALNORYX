@@ -88,6 +88,27 @@
   .animated-mark { translate: none !important; }
 }
 
+
+/* ALNORYX About Us section */
+.about-us{position:relative;isolation:isolate;overflow:hidden;padding:78px 0 86px}
+.about-us:before{content:"";position:absolute;z-index:-1;inset:8% 4%;border-radius:34px;background:linear-gradient(125deg,rgba(250,222,248,.78),rgba(236,224,255,.76) 48%,rgba(255,239,248,.8));border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 80px rgba(116,63,143,.09)}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center;padding:34px 5%}
+.about-copy h2{font-size:clamp(30px,4vw,46px);line-height:1.13;letter-spacing:-1.5px;margin:14px 0}
+.about-copy>p{color:#6d6177;line-height:1.85;max-width:610px}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:24px}
+.about-value{padding:17px;border-radius:17px;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.9);box-shadow:0 8px 24px rgba(91,46,112,.05);transition:transform .25s ease,box-shadow .25s ease}
+.about-value:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(120,55,154,.12)}
+.about-value .value-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#f6d8f4,#e3d7ff);color:#8d36ad;font-size:17px;margin-bottom:10px}
+.about-value h3{font-size:14px;margin:0 0 6px;color:#382641}.about-value p{font-size:12px;line-height:1.65;color:#7d7085;margin:0}
+.about-visual{position:relative;min-height:330px;display:grid;place-items:center}
+.about-orb{width:min(280px,72vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff 0,#f4d7ff 20%,#c5a2f3 48%,#df9fd9 70%,#fce8f6 100%);box-shadow:inset -20px -25px 55px #9256b44d,0 25px 65px #a35bb52b;animation:aboutFloat 5s ease-in-out infinite;position:relative}
+.about-orb:before,.about-orb:after{content:"";position:absolute;inset:-18px;border:1px solid #b875d77a;border-radius:50%;transform:rotate(-25deg) scaleY(.48)}.about-orb:after{inset:-36px;transform:rotate(48deg) scaleY(.5);border-color:#df8ecb88}
+.about-orb-core{position:absolute;inset:0;display:grid;place-items:center;font-size:96px;font-weight:900;letter-spacing:-9px;color:#fff;text-shadow:0 5px 25px #7d39a777}
+.about-chip{position:absolute;padding:12px 15px;border:1px solid #ffffffd9;border-radius:15px;background:#ffffffc9;backdrop-filter:blur(14px);box-shadow:0 12px 35px #63367518;font-size:12px;font-weight:750;color:#60416d;animation:aboutFloat 4.5s ease-in-out infinite}
+.about-chip.chip-one{top:16%;left:0}.about-chip.chip-two{right:-1%;bottom:18%;animation-delay:-2s}
+@keyframes aboutFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media(max-width:760px){.about-us{padding:48px 0 58px}.about-grid{grid-template-columns:1fr;gap:14px;padding:30px 7%}.about-visual{min-height:285px;order:-1}.about-values{grid-template-columns:1fr 1fr}.about-chip.chip-one{left:2%}.about-chip.chip-two{right:0}}
+@media(prefers-reduced-motion:reduce){.about-orb,.about-chip{animation:none}.about-value{transition:none}}
 </style>
 </head>
 <body>
@@ -111,7 +132,7 @@
       <article class="feature reveal"><div class="feature-icon">◇</div><h3>Your work, your way</h3><p>Shape a simple workspace around the projects and routines that matter to you.</p></article>
     </div></div></section>
     <section class="section" id="how" style="padding-top:10px"><div class="container"><div class="cta-band reveal"><div><h2>Make space for your next big idea.</h2><p>Open the prototype, try the dashboard, and shape the next version of ALNORYX.</p></div><button class="btn" style="background:#fff;color:#51215f" id="ctaWorkspace">Open the workspace ↗</button></div></div></section>
-    <section class="section" id="about" style="padding-top:10px"><div class="container section-head reveal"><span class="eyebrow">The ALNORYX vision</span><h2>Technology should feel <span class="gradient-text">empowering.</span></h2><p>We're starting small: listening carefully, building useful tools, and earning trust through quality. This prototype is the beginning—not a claim that every feature is production-ready.</p></div></section>
+    <section class="about-us" id="about" aria-labelledby="aboutTitle"><div class="container about-grid"><div class="about-copy reveal"><span class="eyebrow"><i class="dot"></i> About ALNORYX</span><h2 id="aboutTitle">Technology made for <span class="gradient-text">meaningful progress.</span></h2><p>ALNORYX is a technology and software concept focused on making everyday work clearer, more organized, and easier to manage. We believe useful technology should solve real problems without adding unnecessary complexity.</p><p>Our workspace brings tasks, projects, and client information into one approachable experience. We aim to keep learning, improve thoughtfully, and build tools around what people genuinely need.</p><div class="about-values"><article class="about-value"><div class="value-icon">✦</div><h3>Our mission</h3><p>Make digital work feel more organized, approachable, and useful.</p></article><article class="about-value"><div class="value-icon">◎</div><h3>Our vision</h3><p>Create thoughtful software that helps people turn ideas into progress.</p></article><article class="about-value"><div class="value-icon">◇</div><h3>Our approach</h3><p>Value clarity, usability, privacy awareness, and continuous improvement.</p></article><article class="about-value"><div class="value-icon">↗</div><h3>Keep improving</h3><p>Start with essentials and grow features carefully as needs evolve.</p></article></div></div><div class="about-visual reveal" aria-hidden="true"><div class="about-orb"><div class="about-orb-core">A</div></div><div class="about-chip chip-one">✧ Ideas into action</div><div class="about-chip chip-two">◈ Built around clarity</div></div></div></section>
   </main>
   <footer class="container footer"><div class="footer-inner"><a class="brand" href="#home"><span class="brand-mark animated-mark" aria-hidden="true"><span class="logo-core">A</span></span><span>ALNORYX</span></a><span>Think bigger. Build smarter.</span><span>© <span id="year"></span> ALNORYX concept prototype</span></div></footer>
 </div>
