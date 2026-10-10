@@ -15,13 +15,44 @@
 @media(max-width:950px){.hero-grid{grid-template-columns:1fr;gap:45px}.preview-shell{max-width:620px;margin:auto;width:100%}.feature-grid{grid-template-columns:repeat(2,1fr)}.roadmap-grid{grid-template-columns:repeat(2,1fr)}.app-shell{grid-template-columns:78px 1fr}.app-sidebar{padding:20px 9px}.app-sidebar .brand{padding:0;justify-content:center}.app-sidebar .brand-word,.workspace-label,.nav-label,.sidebar-bottom{display:none}.app-nav button{justify-content:center;padding:13px 8px}.nav-ico{width:auto;font-size:19px}.stat-grid{grid-template-columns:repeat(2,1fr)}.security-band{grid-template-columns:1fr}.dashboard-grid{grid-template-columns:1fr}}
 @media(max-width:650px){.container{width:min(100% - 28px,1160px)}.site-nav{height:70px}.nav-links{display:none}.nav-actions .btn-secondary{display:none}.hero{padding:46px 0 58px}.hero h1{font-size:43px}.hero p{font-size:15px}.preview-content{grid-template-columns:72px 1fr;min-height:270px}.preview-side{padding:17px 6px}.preview-main{padding:17px 10px}.mini-cards{gap:5px}.mini-card{padding:9px 6px}.mini-card b{font-size:15px}.floating-note{left:0;bottom:-20px}.section{padding:58px 0}.feature-grid,.image-grid{grid-template-columns:1fr}.visual-card,.visual-card img,.image-grid .visual-card,.image-grid .visual-card img{min-height:245px}.roadmap-grid{grid-template-columns:1fr}.cta-band{padding:29px 22px;align-items:flex-start;flex-direction:column}.footer-inner{align-items:flex-start;flex-direction:column}.about-grid{grid-template-columns:1fr;gap:24px;padding:24px 5%}.about-photo{height:245px}.about-values,.security-list{grid-template-columns:1fr 1fr}.app-shell{grid-template-columns:1fr}.app-sidebar{position:sticky;top:0;z-index:25;flex-direction:row;align-items:center;padding:9px 12px;gap:10px}.app-sidebar .brand{justify-content:flex-start}.app-sidebar .brand-word{display:block;font-size:11px}.app-nav{display:flex;gap:2px;margin-left:auto}.app-nav button{padding:9px;border-radius:10px}.nav-ico{font-size:17px}.app-topbar{height:57px;padding:0 14px}.app-content{padding:20px 13px 32px}.app-heading{align-items:flex-start;flex-direction:column}.app-heading .btn{width:100%}.stat-grid{gap:8px}.stat-card{padding:13px}.stat-value{font-size:24px}.stat-top{font-size:10px}.stat-icon{width:28px;height:28px}.panel{padding:14px}.task-row{gap:7px;padding:9px}.task-due{display:none}.crumb{font-size:11px}.app-top-actions{gap:8px}.avatar{width:31px;height:31px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.brand-mark{animation:none}}
+
+/* ALNORYX advanced blueprint additions */
+.blueprint-section{padding:88px 0;position:relative}
+.blueprint-section.soft{background:linear-gradient(135deg,#fff8fd 0%,#f4eaff 52%,#fff4fa 100%)}
+.blueprint-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+.blueprint-card{background:rgba(255,255,255,.82);border:1px solid #ead8f4;border-radius:22px;padding:23px;box-shadow:0 14px 38px #38164c0b;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.blueprint-card:hover{transform:translateY(-5px);box-shadow:0 22px 48px #8f3ac01c;border-color:#d5a9ef}
+.blueprint-card .eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#a23bb8}
+.blueprint-card h3{margin:9px 0 10px;color:#321343}
+.blueprint-card p,.blueprint-card li{color:#71617b;line-height:1.65}
+.blueprint-card ul{padding-left:18px;margin-bottom:0}
+.arch-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:26px}
+.arch-node{padding:18px 14px;text-align:center;border:1px solid #e2c8f1;border-radius:18px;background:linear-gradient(145deg,#fff,#f8edff);position:relative}
+.arch-node strong{display:block;color:#56206f;margin-bottom:7px}
+.arch-node span{font-size:.87rem;color:#786984;line-height:1.5}
+.data-table-wrap{overflow:auto;border:1px solid #eadff0;border-radius:18px;margin-top:22px;background:#fff}
+.data-table{width:100%;border-collapse:collapse;min-width:560px}
+.data-table th,.data-table td{text-align:left;padding:14px 16px;border-bottom:1px solid #f0e6f5;vertical-align:top}
+.data-table th{background:#f8edff;color:#56206f}
+.data-table td{color:#6e6078}
+.checklist{display:grid;gap:12px;margin-top:22px}
+.check-row{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid #eadff0;border-radius:15px;background:#fff}
+.check-row input{accent-color:#b23dc5;margin-top:5px;min-width:17px;min-height:17px}
+.check-row span{color:#62536d;line-height:1.5}
+.check-row input:checked+span{text-decoration:line-through;color:#96879e}
+.blueprint-note{padding:16px 18px;border-left:4px solid #cf52c5;border-radius:0 14px 14px 0;background:#fff2fc;color:#6d4a76;line-height:1.6;margin-top:22px}
+@media(max-width:850px){.blueprint-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.arch-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.blueprint-section{padding:60px 0}.blueprint-grid,.arch-flow{grid-template-columns:1fr}.blueprint-card{padding:19px}}
+@media(prefers-reduced-motion:reduce){.blueprint-card{transition:none}.blueprint-card:hover{transform:none}}
+
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #c64acb;outline-offset:3px}
 </style>
 </head>
 <body>
 <div id="marketing">
 <header class="container site-nav">
 <a class="brand" href="#home" aria-label="ALNORYX home"><span class="brand-mark" id="animatedLogo" aria-hidden="true">A</span><span class="brand-word">ALNORYX</span></a>
-<nav class="nav-links" aria-label="Main navigation"><a href="#features">Features</a><a href="#roadmap">Roadmap</a><a href="#security">Security</a><a href="#about">About</a></nav>
+<nav class="nav-links" aria-label="Main navigation"><a href="#features">Features</a><a href="#roadmap">Roadmap</a><a href="#security">Security</a><a href="#about">About</a><a href="#architecture">Architecture</a><a href="#data-model">Data model</a><a href="#security-checklist">Security</a><a href="#launch-plan">Launch plan</a></nav>
 <div class="nav-actions"><button class="btn btn-secondary" id="navSignIn">Sign in</button><button class="btn btn-primary" id="openWorkspace">Explore workspace ↗</button></div>
 </header>
 <main id="home">
@@ -48,6 +79,119 @@
 <section class="section" id="how" style="padding-top:24px"><div class="container"><div class="cta-band reveal"><div><h2>Make space for your next big idea.</h2><p>Open the interactive prototype, try tasks and projects, and shape the next version of ALNORYX.</p></div><button class="btn" style="background:#fff;color:#51215f" id="ctaWorkspace">Open the workspace ↗</button></div></div></section>
 <section class="section" style="padding-top:24px"><div class="container"><div class="image-grid"><article class="visual-card reveal"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85" alt="Team members sharing ideas in a modern collaborative space" loading="lazy"><div class="visual-caption"><span>07 · Ideas</span><h3>Better work starts with listening</h3><p>Talk with real users before expanding the feature list.</p></div></article><article class="visual-card reveal"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85" alt="Laptop showing charts and performance analytics" loading="lazy"><div class="visual-caption"><span>08 · Insights</span><h3>Learn from the signals</h3><p>Understand what people use and where they get stuck.</p></div></article></div></div></section>
 <section class="image-band" aria-label="Creative planning image"><div class="container"><article class="visual-card reveal"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=85" alt="Notebook and laptop on a desk during a project planning session" loading="lazy"><div class="visual-caption"><span>09 · Plan with purpose</span><h3>Turn clear priorities into steady progress</h3><p>Start with a practical plan, then improve it using real feedback.</p></div></article></div></section>
+
+<section class="blueprint-section soft" id="architecture" aria-labelledby="architectureTitle">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Built for the long run</span>
+      <h2 id="architectureTitle">A practical, secure product architecture.</h2>
+      <p>Keep the public website simple while the real workspace grows into a maintainable, multi-customer application.</p>
+    </div>
+    <div class="arch-flow reveal" aria-label="Recommended application architecture">
+      <div class="arch-node"><strong>01 · Web app</strong><span>Next.js + TypeScript<br>Responsive workspace UI</span></div>
+      <div class="arch-node"><strong>02 · Trusted logic</strong><span>Server-side checks<br>Sessions, roles, validation</span></div>
+      <div class="arch-node"><strong>03 · Data layer</strong><span>PostgreSQL + RLS<br>Private file storage</span></div>
+      <div class="arch-node"><strong>04 · Services</strong><span>Hosted checkout<br>Email and monitoring</span></div>
+    </div>
+    <div class="blueprint-grid">
+      <article class="blueprint-card reveal"><span class="eyebrow">Frontend</span><h3>Next.js + TypeScript</h3><p>Reusable pages, accessible components, responsive dashboards, and a clear path from the marketing site to the app.</p><p><a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer">Official documentation ↗</a></p></article>
+      <article class="blueprint-card reveal"><span class="eyebrow">Backend</span><h3>Supabase + PostgreSQL</h3><p>Authentication, relational data, private storage, and optional real-time updates. Configure and test row-level security before customer data is used.</p><p><a href="https://supabase.com/docs/guides/database/secure-data" target="_blank" rel="noopener noreferrer">Security documentation ↗</a></p></article>
+      <article class="blueprint-card reveal"><span class="eyebrow">Deployment</span><h3>Vercel or Node.js hosting</h3><p>Use preview deployments and environment-specific secrets. Check commercial terms, quotas, and backup options before launch.</p><p><a href="https://nextjs.org/docs/app/getting-started/deploying" target="_blank" rel="noopener noreferrer">Deployment guide ↗</a></p></article>
+    </div>
+    <p class="blueprint-note"><strong>Important:</strong> this section is the recommended architecture, not a claim that the static GitHub Pages prototype already has a secure backend. The backend must be implemented, configured, and tested separately.</p>
+  </div>
+</section>
+
+<section class="blueprint-section" id="data-model" aria-labelledby="dataModelTitle">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Designed around customer boundaries</span>
+      <h2 id="dataModelTitle">A database model that can grow with you.</h2>
+      <p>Every customer's projects and tasks should be tied to a workspace, with permissions checked against membership and role.</p>
+    </div>
+    <div class="data-table-wrap reveal">
+      <table class="data-table">
+        <thead><tr><th>Table</th><th>Purpose</th><th>Core rule</th></tr></thead>
+        <tbody>
+          <tr><td><code>profiles</code></td><td>User profile and preferences</td><td>Users can only change permitted profile fields</td></tr>
+          <tr><td><code>workspaces</code></td><td>Customer team or account</td><td>Access limited to authorized members</td></tr>
+          <tr><td><code>workspace_members</code></td><td>Membership and roles</td><td>Role changes restricted to authorized owners/admins</td></tr>
+          <tr><td><code>projects</code></td><td>Projects in a workspace</td><td>Workspace membership required</td></tr>
+          <tr><td><code>tasks</code></td><td>Assignments, status, deadlines</td><td>Project and workspace access verified</td></tr>
+          <tr><td><code>comments</code></td><td>Task and project discussions</td><td>Only permitted members can read or post</td></tr>
+          <tr><td><code>attachments</code></td><td>Private file metadata</td><td>Private bucket and authorized downloads</td></tr>
+          <tr><td><code>subscriptions</code></td><td>Billing state and provider IDs</td><td>Paid access based on verified server-side state</td></tr>
+          <tr><td><code>audit_events</code></td><td>Security and admin activity</td><td>Restricted access; never store secrets</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="blueprint-grid">
+      <article class="blueprint-card reveal"><span class="eyebrow">Least privilege</span><h3>Default-deny access</h3><p>Enable row-level security on exposed tables, grant only required permissions, and test allowed and denied read/write actions with separate accounts.</p></article>
+      <article class="blueprint-card reveal"><span class="eyebrow">Private files</span><h3>Access-controlled uploads</h3><p>Use private storage, validate size and file type, use safe paths, and check authorization before generating download access.</p></article>
+      <article class="blueprint-card reveal"><span class="eyebrow">Reliable records</span><h3>Backups and audit trails</h3><p>Monitor important events without logging passwords or tokens. Regularly test that backups can actually be restored.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="blueprint-section soft" id="security-checklist" aria-labelledby="securityChecklistTitle">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Release readiness</span>
+      <h2 id="securityChecklistTitle">Security checks before inviting customers.</h2>
+      <p>Tick these as you implement and verify them. This checklist is a planning aid, not a certification.</p>
+    </div>
+    <div class="checklist reveal">
+      <label class="check-row"><input type="checkbox"><span><strong>Authentication:</strong> account verification, password recovery, safe sessions, rate limits, and protected admin accounts.</span></label>
+      <label class="check-row"><input type="checkbox"><span><strong>Authorization:</strong> server and database enforce workspace membership; UI visibility is never the only protection.</span></label>
+      <label class="check-row"><input type="checkbox"><span><strong>Secrets:</strong> private keys stay server-side and are never committed to public code or shipped to the browser.</span></label>
+      <label class="check-row"><input type="checkbox"><span><strong>Files:</strong> private storage, upload limits, safe filenames, and access checks are tested.</span></label>
+      <label class="check-row"><input type="checkbox"><span><strong>Payments:</strong> signed webhooks are verified server-side, duplicate events are handled safely, and cancellation works.</span></label>
+      <label class="check-row"><input type="checkbox"><span><strong>Recovery:</strong> dependency updates, monitoring, incident steps, and backup restoration have been tested.</span></label>
+      <label class="check-row"><input type="checkbox"><span><strong>Privacy:</strong> explain what data is collected, why it is needed, how long it is kept, and how users can request help.</span></label>
+    </div>
+    <p class="blueprint-note">Use the <a href="https://owasp.org/www-project-application-security-verification-standard/" target="_blank" rel="noopener noreferrer">OWASP Application Security Verification Standard</a> as a review guide. Do not describe ALNORYX as unhackable or certified unless that has been independently verified.</p>
+  </div>
+</section>
+
+<section class="blueprint-section" id="launch-plan" aria-labelledby="launchPlanTitle">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">From prototype to product</span>
+      <h2 id="launchPlanTitle">A realistic route to your first customers.</h2>
+      <p>Build evidence before investing heavily in growth. The goal is a product that solves a repeat problem, not a long feature list.</p>
+    </div>
+    <div class="blueprint-grid">
+      <article class="blueprint-card reveal"><span class="eyebrow">Step 01</span><h3>Talk to 5–10 people</h3><p>Interview freelancers or small agencies. Learn how they track projects today, where work gets delayed, and what tools they already pay for.</p></article>
+      <article class="blueprint-card reveal"><span class="eyebrow">Step 02</span><h3>Ship one full workflow</h3><p>Create a project, assign a task, set a deadline, update progress, and view a report. Make that flow dependable before adding extras.</p></article>
+      <article class="blueprint-card reveal"><span class="eyebrow">Step 03</span><h3>Run a private beta</h3><p>Invite a small group, observe friction, fix common problems, and provide a clear way to ask for help.</p></article>
+      <article class="blueprint-card reveal"><span class="eyebrow">Step 04</span><h3>Offer a transparent pilot</h3><p>State what's included, what is still being built, how support works, and how a customer can cancel.</p></article>
+      <article class="blueprint-card reveal"><span class="eyebrow">Step 05</span><h3>Measure real value</h3><p>Track weekly active teams, completed projects, repeat use, support requests, conversions, and cancellations.</p></article>
+      <article class="blueprint-card reveal"><span class="eyebrow">Step 06</span><h3>Grow when evidence supports it</h3><p>Prioritize features that help customers return. Avoid large advertising spend until you understand why people choose the product.</p></article>
+    </div>
+    <div class="blueprint-card reveal" style="margin-top:22px">
+      <span class="eyebrow">Illustrative arithmetic, not a forecast</span>
+      <h3>Understand gross revenue before expenses</h3>
+      <p>At ₹399 per month, 25 paying customers would represent ₹9,975 in gross monthly revenue; 100 would represent ₹39,900. These are examples only, not guaranteed earnings, and exclude hosting, payment fees, taxes, refunds, support, and customer acquisition.</p>
+    </div>
+  </div>
+</section>
+
+<section class="blueprint-section soft" id="operating-costs" aria-labelledby="costsTitle">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Plan carefully</span>
+      <h2 id="costsTitle">Know the costs before launch.</h2>
+      <p>Start with a small workload and check current provider limits and terms. Free tiers can change and may not cover production needs.</p>
+    </div>
+    <div class="blueprint-grid">
+      <article class="blueprint-card reveal"><h3>Core infrastructure</h3><p>Domain renewal, app hosting, database/authentication, private file storage, backups, and monitoring.</p></article>
+      <article class="blueprint-card reveal"><h3>Customer operations</h3><p>Verification and notification email, support time, documentation, and incident response.</p></article>
+      <article class="blueprint-card reveal"><h3>Business expenses</h3><p>Payment and billing fees, refunds, disputes, applicable taxes, legal/admin obligations, and optional AI usage.</p></article>
+    </div>
+    <p class="blueprint-note">An early prototype might fit a ₹0–₹3,000/month infrastructure planning allowance, but that is only a rough estimate—not a price promise—and may exclude a domain, taxes, paid tools, professional review, and transaction fees. Check <a href="https://stripe.com/in/pricing" target="_blank" rel="noopener noreferrer">current payment pricing</a> and local eligibility before choosing a provider. Since business accounts and contracts can have age requirements, work with a trusted adult when needed.</p>
+  </div>
+</section>
+
 <section class="about-us" id="about" aria-labelledby="aboutTitle"><div class="container about-grid"><div class="about-copy reveal"><span class="eyebrow"><i class="dot"></i> About ALNORYX</span><h2 id="aboutTitle">Technology made for <span class="gradient-text">meaningful progress.</span></h2><div class="about-lines"><p>1. ALNORYX is a technology and software business concept focused on useful digital experiences.</p><p>2. We aim to make everyday work clearer, more organized, and easier to manage.</p><p>3. Our workspace brings tasks, projects, and client information into one approachable experience.</p><p>4. We believe software should solve real problems without unnecessary complexity.</p><p>5. Clear design and usability guide the way we think about digital tools.</p><p>6. We value thoughtful improvement as needs and ideas evolve.</p><p>7. We aim to make important information easier to find and understand.</p><p>8. Privacy awareness and responsible engineering are important considerations.</p><p>9. ALNORYX is being shaped around practical workflows and everyday needs.</p><p>10. Our goal is to keep learning and build technology that helps people move forward.</p></div><div class="founder-credit"><span class="founder-avatar">A</span><span><small>CEO & Founder · Created by</small><strong>Sujan.N</strong></span></div><div class="about-values"><article class="about-value"><div class="value-icon">✦</div><h3>Our mission</h3><p>Make digital work feel more organized, approachable, and useful.</p></article><article class="about-value"><div class="value-icon">◎</div><h3>Our vision</h3><p>Create thoughtful software that helps people turn ideas into progress.</p></article><article class="about-value"><div class="value-icon">◇</div><h3>Our approach</h3><p>Value clarity, usability, privacy awareness, and continuous improvement.</p></article><article class="about-value"><div class="value-icon">↗</div><h3>Keep improving</h3><p>Start with essentials and grow features carefully as needs evolve.</p></article></div></div><div class="about-visual reveal"><img class="about-photo" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85" alt="Modern bright office workspace with desks and natural light" loading="lazy"><div class="founder-credit"><span class="founder-avatar">A</span><span><small>CEO of ALNORYX</small><strong>Sujan.N</strong></span></div></div></div></section>
 </main>
 <footer class="container footer"><div class="footer-inner"><a class="brand" href="#home"><span class="brand-mark">A</span><span class="brand-word">ALNORYX</span></a><span>Think bigger. Build smarter.</span><span>© <span id="year"></span> ALNORYX · Prototype concept</span></div></footer>
