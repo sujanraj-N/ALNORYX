@@ -250,6 +250,25 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #c64a
   </div>
 </section>
 
+
+<section class="section" id="alnoryx-power-tools" aria-labelledby="alnoryx-power-tools-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Five powerful tools</span>
+      <h2 id="alnoryx-power-tools-title">One workspace. <span class="gradient-text">More momentum.</span></h2>
+      <p>Open your existing ALNORYX tools from one place. Your current pages and design stay in place.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="feature reveal"><h3>✦ AI Assistant</h3><p>Open ALNORYX AI to draft ideas, explain topics, and plan your next steps.</p><button class="btn btn-secondary" type="button" data-alnoryx-open-view="ai">Open AI Assistant →</button></article>
+      <article class="feature reveal"><h3>⌕ Smart Search</h3><p>Search and organize information in your workspace using the existing search tools.</p><button class="btn btn-secondary" type="button" data-alnoryx-open-view="search">Open Smart Search →</button></article>
+      <article class="feature reveal"><h3>✓ Task Planner</h3><p>Create tasks, set priorities and due dates, and track completion.</p><button class="btn btn-secondary" type="button" data-alnoryx-open-view="tasks">Open Task Planner →</button></article>
+      <article class="feature reveal"><h3>◈ Project Insights</h3><p>Review project progress and open the workspace insights dashboard.</p><button class="btn btn-secondary" type="button" data-alnoryx-open-view="insights">View Insights →</button></article>
+      <article class="feature reveal"><h3>⚙ Automation Lab</h3><p>Explore workflow rules and test the existing local automation prototype.</p><button class="btn btn-secondary" type="button" data-alnoryx-open-view="automation">Open Automation →</button></article>
+    </div>
+    <p class="shop-small" style="margin-top:16px">Note: these buttons open existing ALNORYX workspace tools. Some tools are local prototypes; live AI, web-wide search, shared accounts, and server automation need connected services.</p>
+  </div>
+</section>
+
 </main>
 <footer class="container footer"><div class="footer-inner"><a class="brand" href="#home"><span class="brand-mark">A</span><span class="brand-word">ALNORYX</span></a><span>Think bigger. Build smarter.</span><span>© <span id="year"></span> ALNORYX · Prototype concept</span></div></footer>
 </div>
@@ -391,5 +410,16 @@ document.addEventListener('click', function (event) {
   }
 });
 </script>
+
+<script id="alnoryx-power-tools-links">
+document.addEventListener('click', function (event) {
+  const button = event.target && event.target.closest('[data-alnoryx-open-view]');
+  if (!button) return;
+  const view = button.getAttribute('data-alnoryx-open-view');
+  if (typeof showApp === 'function') showApp(view);
+  else document.getElementById('app')?.scrollIntoView({behavior:'smooth'});
+});
+</script>
+
 </body>
 </html>
