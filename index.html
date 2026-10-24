@@ -323,5 +323,43 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
 }
 </script>
 <!-- ALNORYX AI feature suite appended to existing code; original sections and functions retained. -->
+
+<!-- ALNORYX AI Assistant: UI + secure backend integration starter. Existing page content above is preserved. -->
+<style id="alnoryx-ai-styles">
+#alnoryx-ai-launcher{position:fixed;right:22px;bottom:22px;z-index:9998;border:0;border-radius:999px;padding:13px 18px;background:linear-gradient(120deg,#d946ef,#8b5cf6);color:#fff;font:600 14px/1.2 system-ui,sans-serif;box-shadow:0 10px 34px #7c3aed44;cursor:pointer}
+#alnoryx-ai-widget{position:fixed;right:22px;bottom:82px;width:min(390px,calc(100vw - 28px));height:min(560px,calc(100dvh - 120px));z-index:9999;display:none;flex-direction:column;overflow:hidden;border:1px solid #e8c8f7;border-radius:20px;background:#fffaff;color:#281331;box-shadow:0 22px 70px #32134335;font:14px/1.45 system-ui,sans-serif}
+#alnoryx-ai-widget.open{display:flex}#alnoryx-ai-widget *{box-sizing:border-box}#alnoryx-ai-head{display:flex;align-items:center;justify-content:space-between;padding:15px 16px;background:linear-gradient(120deg,#4c1d5e,#8b3aa8);color:white}#alnoryx-ai-head strong{font-size:15px}#alnoryx-ai-head small{display:block;opacity:.82;font-size:11px;margin-top:2px}#alnoryx-ai-close{border:0;background:#ffffff20;color:#fff;border-radius:9px;padding:6px 10px;cursor:pointer;font-size:18px}#alnoryx-ai-status{padding:8px 14px;background:#fbf2ff;color:#76438a;font-size:11px;border-bottom:1px solid #f0def7}#alnoryx-ai-messages{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px} .alnoryx-ai-msg{white-space:pre-wrap;overflow-wrap:anywhere;max-width:90%;padding:10px 12px;border-radius:14px}.alnoryx-ai-msg.assistant{align-self:flex-start;background:#f3e8ff;border:1px solid #e8d5fb}.alnoryx-ai-msg.user{align-self:flex-end;background:#8b3aa8;color:#fff}.alnoryx-ai-msg.system{align-self:center;background:#fff3e8;color:#78421d;font-size:12px;max-width:100%}#alnoryx-ai-form{padding:12px;border-top:1px solid #f0def7;display:flex;gap:8px;background:#fff}#alnoryx-ai-input{min-width:0;flex:1;resize:none;border:1px solid #ddc7e8;border-radius:12px;padding:10px 11px;font:inherit;color:#281331;outline-color:#a855f7}#alnoryx-ai-send{border:0;border-radius:12px;padding:0 14px;background:#8b3aa8;color:#fff;font-weight:600;cursor:pointer}#alnoryx-ai-send:disabled{opacity:.5;cursor:wait}#alnoryx-ai-note{font-size:10px;color:#816b89;padding:0 12px 10px;background:#fff}
+@media(max-width:520px){#alnoryx-ai-launcher{right:14px;bottom:14px}#alnoryx-ai-widget{right:10px;bottom:70px;width:calc(100vw - 20px);height:min(570px,calc(100dvh - 90px))}}
+</style>
+<button id="alnoryx-ai-launcher" type="button" aria-controls="alnoryx-ai-widget" aria-expanded="false">✦ Ask ALNORYX AI</button>
+<section id="alnoryx-ai-widget" role="dialog" aria-label="ALNORYX AI Assistant" aria-modal="false">
+  <header id="alnoryx-ai-head"><div><strong>ALNORYX AI</strong><small>Your workspace assistant</small></div><button id="alnoryx-ai-close" type="button" aria-label="Close assistant">×</button></header>
+  <div id="alnoryx-ai-status">DEMO MODE · Backend not configured</div>
+  <div id="alnoryx-ai-messages" aria-live="polite"><div class="alnoryx-ai-msg assistant">Hi! I’m the ALNORYX AI Assistant. I can help plan a project, draft content, or explain an idea. Connect the secure backend to enable real AI answers.</div></div>
+  <form id="alnoryx-ai-form"><textarea id="alnoryx-ai-input" rows="2" maxlength="2000" placeholder="Ask a question…" aria-label="Your message" required></textarea><button id="alnoryx-ai-send" type="submit">Send</button></form>
+  <div id="alnoryx-ai-note">Do not enter passwords, private keys, or sensitive personal information.</div>
+</section>
+<script id="alnoryx-ai-client">
+(()=>{
+ const $=id=>document.getElementById(id); const launcher=$('alnoryx-ai-launcher'), panel=$('alnoryx-ai-widget'), close=$('alnoryx-ai-close'), form=$('alnoryx-ai-form'), input=$('alnoryx-ai-input'), send=$('alnoryx-ai-send'), messages=$('alnoryx-ai-messages'), status=$('alnoryx-ai-status');
+ // Set this to your deployed backend URL, e.g. https://api.example.com. Leave blank for same-origin hosting.
+ const configuredBase=(window.ALNORYX_API_BASE||'').trim().replace(/\\/$/,'');
+ const isGithubPages=location.hostname.endsWith('github.io');
+ const apiBase=configuredBase || (isGithubPages ? '' : location.origin);
+ const connected=!!configuredBase || (!isGithubPages && location.protocol!=='file:');
+ status.textContent=connected?'BACKEND CONFIGURED · AI replies use your server':'DEMO MODE · Deploy the backend and set ALNORYX_API_BASE';
+ function addMessage(text,kind='assistant'){const el=document.createElement('div');el.className='alnoryx-ai-msg '+kind;el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight;return el;}
+ function toggle(open){panel.classList.toggle('open',open);launcher.setAttribute('aria-expanded',String(open));if(open)input.focus();}
+ launcher.addEventListener('click',()=>toggle(!panel.classList.contains('open')));close.addEventListener('click',()=>toggle(false));
+ form.addEventListener('submit',async e=>{e.preventDefault();const text=input.value.trim();if(!text)return;addMessage(text,'user');input.value='';
+   if(!connected){addMessage('This is a demo: no real AI request was sent. To enable AI, deploy the included server and configure ALNORYX_API_BASE.','system');return;}
+   send.disabled=true;const waiting=addMessage('Thinking…');
+   try{const response=await fetch(apiBase+'/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text})});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'Request failed ('+response.status+').');waiting.textContent=data.reply||'No reply was returned.';}
+   catch(err){waiting.textContent='Could not reach the AI service. Check the backend URL and server logs, then try again.';console.error('ALNORYX AI request failed:',err);}
+   finally{send.disabled=false;input.focus();}
+ });
+})();
+</script>
+
 </body>
 </html>
