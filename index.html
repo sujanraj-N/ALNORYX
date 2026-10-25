@@ -351,6 +351,7 @@ function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e)
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function toast(msg){$('#toastRoot').innerHTML=`<div class="toast">${esc(msg)}</div>`;setTimeout(()=>$('#toastRoot').innerHTML='',2600)}
 function showApp(view='overview'){$('#marketing').classList.add('hidden');$('#app').classList.remove('hidden');currentView=view;renderView();window.scrollTo(0,0)}
+window.ALNORYXShowApp=showApp; // Expose the existing workspace navigation for buttons in added sections.
 function showSite(){$('#app').classList.add('hidden');$('#marketing').classList.remove('hidden');window.scrollTo(0,0)}
 function setActive(){$$('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===currentView));$('#crumbCurrent').textContent=({overview:'Overview',tasks:'Tasks',projects:'Projects',clients:'Clients',ai:'ALNORYX AI',search:'Smart Search',studio:'Website Studio',insights:'Business Insights',automation:'Automation Lab',creator:'Creator Studio',team:'Team Space',memory:'Project Memory'})[currentView]||'Overview'}
 function head(title,sub,action=''){return `<div class="app-heading"><div><h1>${title}</h1><p>${sub}</p></div>${action}</div>`}
@@ -469,9 +470,15 @@ document.addEventListener('click', function (event) {
 document.addEventListener('click', function (event) {
   const button = event.target && event.target.closest('[data-alnoryx-open-view]');
   if (!button) return;
+  event.preventDefault();
   const view = button.getAttribute('data-alnoryx-open-view');
-  if (typeof showApp === 'function') showApp(view);
-  else document.getElementById('app')?.scrollIntoView({behavior:'smooth'});
+  const validViews = ['overview','tasks','projects','clients','ai','search','studio','insights','automation','creator','team','memory'];
+  if (validViews.includes(view) && typeof window.ALNORYXShowApp === 'function') {
+    window.ALNORYXShowApp(view);
+  } else {
+    console.warn('ALNORYX: unavailable workspace view:', view);
+    document.getElementById('app')?.scrollIntoView({behavior:'smooth'});
+  }
 });
 </script>
 
